@@ -21,8 +21,8 @@ class Student extends Person {
             for (let mark of this.attendance) {
                 counter += mark;
             }
-            let attendancePercentage = (counter / this.attendance.length) * 100;
-            return '$attendancePercentage.toFixed(2)%';
+            let attendancePercent = (counter / this.attendance.length) * 100;
+            return '$attendancePercent.toFixed(2)%';
         } else {
             return '0%';
         }
@@ -56,7 +56,7 @@ class Course {
 
     setTeacher() {
         let name = prompt("Enter full teacher name:","Bunsen Honeydew");
-        let email = prompt("Enter teach email:","Honeydew@SeattleU.edu");
+        let email = prompt("Enter teacher email:","Honeydew@SeattleU.edu");
         let honorific = prompt("Enter title:","Dr.");
         this.teacher = new Teacher(name, email, honorific);
         updateRoster(this);
@@ -77,11 +77,8 @@ class Course {
     // Methods provided for you -- DO NOT EDIT /////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 
-    findStudent(username){
-        // This method provided for convenience. It takes in a username and looks
-        // for that username on student objects contained in the `this.students`
-        // Array.
-        let foundStudent = this.students.find(function(student, index){
+    findStudent(username) {
+        let foundStudent = this.students.find(function(student, index) {
             return student.username == username;
         });
         return foundStudent;
