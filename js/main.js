@@ -30,6 +30,7 @@ class Student extends Person {
         super(name, email);
         this.attendance = [];
     }
+    
 // TODO: Create another method on the `Student` class called `calculateAttendance`.
 // This method should give a percentage of how many days the student was present.
 // It should return a string like "90%" or "84.732%". Attendance should be
@@ -42,22 +43,20 @@ class Student extends Person {
             for (let mark of this.attendance) {
                 counter += mark;
             }
-            let attendancePercentage = 
+            let attendancePercentage = (counter / this.attendance.length) * 100;
+            return '$attendancePercentage.toFixed(2)%';
         } else {
             return '0%';
         }
     }
 }
 
-
-
-
 // TODO: Create another class that extends the `Person` class called `Teacher`.
 // The `Teacher` class should add a property called `this.honorific` (supplied
 // when an instance of `Teacher` is created).
 class Teacher extends Person {
-    constructor(name, email, honorific) {
-        super(name, email, honorific);
+    constructor(name, email) {
+        super(name, email);
     }
 }
 
