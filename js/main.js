@@ -87,26 +87,12 @@ class Course {
         return foundStudent;
     }
 
-
-/////////////////////////////////////////
-// TODO: Prompt User for Course Info  //////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-//
-// Prompt the user for information to create the Course. In order to create a
-// `Course` object, you must gather the following information:
-//
-// TODO: Prompt the user for the `courseCode` (the number/code of the course, like "WATS 3000").
 let courseCode = prompt("Enter the course code:","SCI 401");
 
-// TODO: Prompt the user for the `courseTitle` (the name of the course, like "Introduction to JavaScript").
 let courseTitle = prompt("Enter the course title:","Muppet Labs");
 
-// TODO: Prompt the user for the  `courseDescription` (the descriptive summary of the course).
 let courseDescription = prompt("Enter the course description:","Where the future is being made");
 
-
-// Create a new `Course` object instance called `myCourse` using the three data points just collected from the user.
-// TODO: Add in the values for the information supplied by the user above.
 let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
 ///////////////////////////////////////////////////
