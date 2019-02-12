@@ -10,6 +10,13 @@
 // and `email` and makes those available as attributes. The `constructor()`
 // method should also break the username from before the `@` symbol in the
 // `email` value and use that to store on a `this.username` property.
+class Person {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+        this.username = email.split('@')[0];
+    }
+}
 
 // TODO: Create another class that extends the `Person` class called `Student`.
 // The `Student` class should add a line to the `constructor()` method that sets
@@ -18,20 +25,41 @@
 // use the `super()` command so you don't lose the functionality of the
 // `constructor()` method from the `Person` class.)
 //
-
-
+class Student extends Person {
+    constructor(name, email) {
+        super(name, email);
+        this.attendance = [];
+    }
 // TODO: Create another method on the `Student` class called `calculateAttendance`.
 // This method should give a percentage of how many days the student was present.
 // It should return a string like "90%" or "84.732%". Attendance should be
 // recorded into an Array using either a `0` for "absent" or a `1` for "present".
 // This should allow attendance percentage to be calculated as the average of
 // all the items in the `attendance` Array.
+    calculateAttendance() {
+        if (this.attendance.length > 0) {
+            let counter = 0;
+            for (let mark of this.attendance) {
+                counter += mark;
+            }
+            let attendancePercentage = 
+        } else {
+            return '0%';
+        }
+    }
+}
+
+
 
 
 // TODO: Create another class that extends the `Person` class called `Teacher`.
 // The `Teacher` class should add a property called `this.honorific` (supplied
 // when an instance of `Teacher` is created).
-
+class Teacher extends Person {
+    constructor(name, email, honorific) {
+        super(name, email, honorific);
+    }
+}
 
 // TODO: Set up our Course class so we can run the whole roster from it.
 class Course {
