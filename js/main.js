@@ -51,9 +51,6 @@ class Student extends Person {
     }
 }
 
-// TODO: Create another class that extends the `Person` class called `Teacher`.
-// The `Teacher` class should add a property called `this.honorific` (supplied
-// when an instance of `Teacher` is created).
 class Teacher extends Person {
     constructor(name, email, honorific) {
         super(name, email);
@@ -81,7 +78,12 @@ class Course {
     // to update the roster display by calling `updateRoster()`. You will need
     // to reference the Class instance using `this` as a parameter for
     // `updateRoster()`, so it might look like this: `updateRoster(this)`.
-
+    addStudent() {
+        let name = prompt("Enter student full name:", "Beaker");
+        let email = prompt("Enter student email:","Beaker@SeattleU.edu");
+        let newStudent = new Student(name, email);
+        this.students.push(newStudent);
+    }
 
     /////////////////////////////////////////
     // TODO: ADD the `setTeacher()` method /////////////////////////////////////
