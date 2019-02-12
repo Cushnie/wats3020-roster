@@ -22,7 +22,7 @@ class Student extends Person {
                 counter += mark;
             }
             let attendancePercentage = (counter / this.attendance.length) * 100;
-            return '${attendancePercentage.toFixed(2)%}';
+            return '$attendancePercentage.toFixed(2)%';
         } else {
             return '0%';
         }
