@@ -22,21 +22,21 @@ class Student extends Person {
                 counter += mark;
             }
             let attendancePercentage = (counter / this.attendance.length) * 100;
-            return '$attendancePercentage.toFixed(2)%';
+            return '${attendancePercentage.toFixed(2)%}';
         } else {
             return '0%';
         }
     }
-
+}
 
 class Teacher extends Person {
     constructor(name, email, honorific) {
         super(name, email);
         this.honorific = honorific;
-    }
-}
+         }
+        } 
 
-// TODO: Set up our Course class so we can run the whole roster from it.
+
 class Course {
     constructor(courseCode, courseTitle, courseDescription){
         this.code = courseCode;
@@ -44,7 +44,7 @@ class Course {
         this.description = courseDescription;
         this.teacher = null;
         this.students = [];
-    }
+        }
 
     addStudent() {
         let name = prompt("Enter student full name:", "Beaker");
@@ -52,7 +52,7 @@ class Course {
         let newStudent = new Student(name, email);
         this.students.push(newStudent);
         updateRoster(this);
-    }
+        }
 
     setTeacher() {
         let name = prompt("Enter full teacher name:","Bunsen Honeydew");
@@ -60,7 +60,7 @@ class Course {
         let honorific = prompt("Enter title:","Dr.");
         this.teacher = new Teacher(name, email, honorific);
         updateRoster(this);
-    }
+        }
 
     markAttendance(username, status = "present") {
         let foundStudent = this.findStudent(username);
@@ -70,8 +70,8 @@ class Course {
             foundStudent.attendance.push(0);
         }
         updateRoster(this);
-    }
-
+        }
+}
 
     //////////////////////////////////////////////
     // Methods provided for you -- DO NOT EDIT /////////////////////////////////
@@ -86,7 +86,7 @@ class Course {
         });
         return foundStudent;
     }
-}
+
 
 /////////////////////////////////////////
 // TODO: Prompt User for Course Info  //////////////////////////////////////////
