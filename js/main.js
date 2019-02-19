@@ -1,6 +1,5 @@
 /* JS for WATS 3020 Roster Project */
 
-
 class Person {
     constructor(name, email) {
         this.name = name;
@@ -13,18 +12,17 @@ class Student extends Person {
     constructor(name, email) {
         super(name, email);
         this.attendance = [];
-    }
-
-    calculateAttendance() {
-        if (this.attendance.length > 0) {
-            let counter = 0;
-            for (let mark of this.attendance) {
-                counter += mark;
             }
-            let attendancePercent = (counter / this.attendance.length) * 100;
-            return '$attendancePercent.toFixed(2)%';
-        } else {
-            return '0%';
+    calculateAttendance() {
+    if (this.attendance.length > 0) {
+        let counter = 0;
+        for (let mark of this.attendance) {
+            counter += mark;
+                }
+        let attendancePercent = (counter / this.attendance.length) * 100;
+        return `$attendancePercent.toFixed(2)%`;
+            } else {
+            return `0%`;
         }
     }
 }
@@ -33,8 +31,8 @@ class Teacher extends Person {
     constructor(name, email, honorific) {
         super(name, email);
         this.honorific = honorific;
-         }
-        } 
+            }
+    } 
 
 
 class Course {
@@ -58,7 +56,7 @@ class Course {
         let name = prompt("Enter full teacher name:","Bunsen Honeydew");
         let email = prompt("Enter teacher email:","Honeydew@SeattleU.edu");
         let honorific = prompt("Enter title:","Dr.");
-        this.teacher = new Teacher(name, email, honorific);
+        this.teacher = new Teacher(honorific, name, email);
         updateRoster(this);
         }
 
@@ -66,31 +64,37 @@ class Course {
         let foundStudent = this.findStudent(username);
         if (status === "present") {
             foundStudent.attendance.push(1);
-        } else {
+            } else {
             foundStudent.attendance.push(0);
+                }
+            updateRoster(this);
         }
+        
+    addCourse() {
+        let courseCode = prompt("Enter the course code:","SCI 401");
+        let courseTitle = prompt("Enter the course title:","Muppet Labs");
+        let courseDescription = prompt("Enter the course description:","Where the future is being made");
+        let myCourse = new Course(courseCode, courseTitle, courseDescription);
         updateRoster(this);
         }
-}
+    }   
 
     //////////////////////////////////////////////
     // Methods provided for you -- DO NOT EDIT /////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 
-    findStudent(username) {
-        let foundStudent = this.students.find(function(student, index) {
+    findStudent(username){
+        // This method provided for convenience. It takes in a username and looks
+        // for that username on student objects contained in the `this.students`
+        // Array.
+        let foundStudent = this.students.find(function(student, index){
             return student.username == username;
-        });
+        }
         return foundStudent;
     }
 
-let courseCode = prompt("Enter the course code:","SCI 401");
 
-let courseTitle = prompt("Enter the course title:","Muppet Labs");
 
-let courseDescription = prompt("Enter the course description:","Where the future is being made");
-
-let myCourse = new Course(courseCode, courseTitle, courseDescription);
 
 ///////////////////////////////////////////////////
 //////// Main Script /////////////////////////////
